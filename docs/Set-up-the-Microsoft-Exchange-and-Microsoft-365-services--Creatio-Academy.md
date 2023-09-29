@@ -1,0 +1,293 @@
+
+
+
+ To set up connection parameters for email providers, a user must have the permission to run the “Access to “Access rights” workspace” (“CanManageAdministration” code) system operation. Learn more about using system operations in a separate article:
+ [System operation permissions](https://academy.creatio.com/documents?id=2000) 
+ .
+ 
+
+
+
+
+
+ Note.
+ 
+ Set up the
+ [Exchange Listener](https://academy.creatio.com/documents?id=2074) 
+ synchronization service before setting up an email provider.
+ 
+
+
+
+
+ You can add an email service provider using several methods.
+ 
+
+
+
+ Method 1. Add the provider from the [Email] tab of the communication panel
+----------------------------------------------------------------------------
+
+
+1. Click
+ ![btn_com_email_tab.png](/guides/sites/en/files/documentation/user/en/base_integrations/BPMonlineHelp/setup_MSExchange_Microsoft/btn_com_email_tab.png)
+ in the communication panel to open the
+ 
+ Email
+ 
+ tab.
+2. Click
+ ![btn_products_change_field.png](/guides/sites/en/files/documentation/user/en/base_integrations/BPMonlineHelp/setup_MSExchange_Microsoft/btn_products_change_field.png)
+ and select the
+ 
+ New email account
+ 
+ action (Fig. 1).
+ 
+
+
+
+
+ Fig. 1 Add a new email account
+ 
+
+![scr_chapter_imap_synchronisation_ccrd_new_email.png](/guides/sites/en/files/documentation/user/en/base_integrations/BPMonlineHelp/setup_MSExchange_Microsoft/scr_chapter_imap_synchronisation_ccrd_new_email.png)
+
+
+
+
+
+ Note.
+ 
+ You can also add a new email account by selecting the
+ 
+ Go to mailbox settings actions
+ 
+ under
+ ![btn_products_change_field00001.png](/guides/sites/en/files/documentation/user/en/base_integrations/BPMonlineHelp/setup_MSExchange_Microsoft/btn_products_change_field00001.png)
+ and clicking
+ 
+ New
+ 
+ on the page that opens.
+3. Enter the email address in the displayed
+ 
+ New email account
+ 
+ widow, and click
+ 
+ Next
+ 
+ .
+4. Click the
+ 
+ Add New Server
+ 
+ button.
+ 
+
+
+
+
+
+ Note.
+ 
+ Add the domains of a new provider to the
+ 
+ Email providers domains
+ 
+ lookup to have Creatio automatically identify this email provider in the future. As a result, users will not have to specify the mail provider manually when setting up an email account.
+5. Click
+ 
+ Add
+ 
+ on the page that opens Fig. 2).
+ 
+
+
+
+
+ Fig. 2 Add a new email provider
+ 
+
+![scr_chapter_imap_synchronisation_wnd_new_provider.png](/docs/sites/en/files/images/Setup_and_Administration/set_up_microsoft_exchange_and_office_365/scr_chapter_imap_synchronisation_wnd_new_provider.png)
+6. Select “Exchange” in the
+ 
+ Service type
+ 
+ field on the page that opens.
+7. Fill out the
+ 
+ Service address
+ 
+ field in the “example.exchange.com” format (Fig. 3).
+ 
+
+
+
+
+ Fig. 3 Specify the mail service address
+ 
+
+![scr_chapter_exchange_synchronisation_new_provider_settings.png](/guides/sites/en/files/documentation/user/en/base_integrations/BPMonlineHelp/setup_MSExchange_Microsoft/scr_chapter_exchange_synchronisation_new_provider_settings.png)
+8. Fill out the additional settings to set up receiving and sending emails, specify the login format, service name and the authentication method if needed (Fig. 4).
+ 
+
+
+
+
+
+ Note.
+ 
+ Setting up passwordless OAuth authentication for Microsoft 365 requires an existing OAuth application. Learn more in a separate article:
+ [Set up OAuth authentication for MS Office 365](https://academy.creatio.com/documents?id=2154) 
+ .
+ 
+
+
+
+
+
+ Fig. 4 Additional settings of the mail service
+ 
+
+![scr_chapter_exchange_synchronisation_wnd_add_service.png](/guides/sites/en/files/documentation/user/en/base_integrations/BPMonlineHelp/setup_MSExchange_Microsoft/scr_chapter_exchange_synchronisation_wnd_add_service.png)
+
+
+1. **To enable receiving and sending emails** 
+ :
+ 
+
+
+
+ Select the
+ 
+ Receive emails
+ 
+ and/or
+ 
+ Send emails
+ 
+ checkbox.
+ 
+
+
+
+ Select at least one checkbox.
+2. **To set up the mailbox login format:** 
+
+
+
+	* Select
+	 
+	 Use manual entry
+	 
+	 if users must enter their email address and username.
+	* Select
+	 
+	 Use email address
+	 
+	 option if the full email address is used as a login, for example, “test@google.com.”
+	* Select the
+	 
+	 Use mailbox name
+	 
+	 option if the part of the email address before “@” is used as a login. For example, the “test” will be a login for “test@google.com” email address.
+3. **To set up the authentication method:** 
+
+
+
+
+
+
+ Warning.
+ 
+ Microsoft is deprecating the login and password authentication (Basic Authentication) method since it is obsolete and insecure. We recommend setting up secure OAuth authentication so that you do not lose access to your mailboxes from Creatio.
+ 
+
+
+
+	* Select “OAuth 2.0” to restrict the service access to protected user resources without the need to pass the login and password. Fill out the
+	 
+	 Application (client) ID
+	 
+	 and
+	 
+	 Client secret
+	 
+	 required fields.
+	 
+	
+	
+	
+	
+	 Application (client) ID
+	 
+	 is generated by the Microsoft authentication server. The documentation and API may refer to the application ID as “Product ID.”
+	 
+	
+	
+	
+	
+	 Client secret
+	 
+	 – a secret key generated by the authentication server. The documentation and API may refer to the client secret as “Product key.”
+	* Select “Basic” for the basic authentication using the user name and password with Base64 encryption.
+4. Save the settings.
+ 
+
+
+
+ As a result, Creatio users will be able to use the email provider to send and receive email messages.
+
+
+
+ Method 2. Add the email provider from the user profile
+--------------------------------------------------------
+
+
+1. Open the user profile page by clicking the
+ 
+ Profile
+ 
+ image button on the Creatio main page.
+2. Click
+ 
+ Email accounts
+ 
+ (Fig. 1). This opens a box
+ 
+
+
+
+
+ Fig. 1 Open email accounts
+ 
+
+![scr_chapter_imap_synchronisation_ccrd_profile_new_email.png](/guides/sites/en/files/documentation/user/en/base_integrations/BPMonlineHelp/setup_MSExchange_Microsoft/scr_chapter_imap_synchronisation_ccrd_profile_new_email.png)
+3. Click
+ 
+ New
+ 
+ in the box that opens.
+ 
+
+
+
+**Take steps 3–9** 
+ described above in
+ **Method 1** 
+ to complete the setup.
+ 
+
+
+
+
+
+ Note.
+ 
+ To delete a mail server, delete its mailboxes (email accounts) first.
+
+
+
+
