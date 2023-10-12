@@ -14,8 +14,8 @@ def get_es_retriever(
     if embedding is None:
         embedding = HuggingfaceAwsApiEmbedding(embedding_endpoint)
     client = Elasticsearch(
-        # hosts=["http://localhost:9200"],
-        cloud_id="academy:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGRiM2MzNWE3NDJjNDRhZGE4OGY4YjYwOTUxOWM0YTg4JGFhZThmMWM1NTdhYTRmMTZhYTY5YzlkNzg2YzRmYTM4",
+        hosts=["http://localhost:9200"],
+        # cloud_id="academy:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGRiM2MzNWE3NDJjNDRhZGE4OGY4YjYwOTUxOWM0YTg4JGFhZThmMWM1NTdhYTRmMTZhYTY5YzlkNzg2YzRmYTM4",
         request_timeout=280,
         retry_on_timeout=True,
         max_retries=2,

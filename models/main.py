@@ -104,6 +104,7 @@ def openai_start(load_files=False):
     search_relevant_docs(retriever)
 
 
+
 def bge_large_en_start(load_files=False):
     embedding_endpoint = "https://uzzsvg0w7zgyuf6d.eu-west-1.aws.endpoints.huggingface.cloud"
     index_name = "BAAI__bge-large-en-v1.5".lower()
