@@ -7,18 +7,18 @@ from indexing_elasticsearch import es_indexing, es_search
 from questions import questions
 
 huggingface_models = [
-    {
-        "name": "multilinguale5large",
-        "embedding_endpoint": "https://h9em6m9mades5mmn.us-east-1.aws.endpoints.huggingface.cloud",
-        "vector_index": "multilingual_e5_large".lower(),
-        "embedding": None
-    },
-    {
-        "name": "BAAIbgelargeenv15",
-        "embedding_endpoint": "https://uzzsvg0w7zgyuf6d.eu-west-1.aws.endpoints.huggingface.cloud",
-        "vector_index": "BAAI__bge-large-en-v1.5".lower(),
-        "embedding": None
-    },
+    # {
+    #     "name": "multilinguale5large",
+    #     "embedding_endpoint": "https://h9em6m9mades5mmn.us-east-1.aws.endpoints.huggingface.cloud",
+    #     "vector_index": "multilingual_e5_large".lower(),
+    #     "embedding": None
+    # },
+    # {
+    #     "name": "BAAIbgelargeenv15",
+    #     "embedding_endpoint": "https://uzzsvg0w7zgyuf6d.eu-west-1.aws.endpoints.huggingface.cloud",
+    #     "vector_index": "BAAI__bge-large-en-v1.5".lower(),
+    #     "embedding": None
+    # },
     {
         "name": "openai",
         "embedding_endpoint": None,

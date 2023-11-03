@@ -2,7 +2,7 @@ from elasticsearch import Elasticsearch
 from langchain.schema.embeddings import Embeddings
 from langchain.vectorstores import ElasticsearchStore
 from langchain.vectorstores.utils import DistanceStrategy
-from docs_utils import get_academy_docs
+from docs_utils import get_academy_docs, get_demo_docs
 from huggingface.embedding import HuggingfaceAwsApiEmbedding
 
 def get_es_retriever(
@@ -14,12 +14,12 @@ def get_es_retriever(
     if embedding is None:
         embedding = HuggingfaceAwsApiEmbedding(embedding_endpoint)
     client = Elasticsearch(
-        hosts=["http://localhost:9200"],
+        hosts=["http://207.154.243.50:9200"],
         # cloud_id="academy:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGRiM2MzNWE3NDJjNDRhZGE4OGY4YjYwOTUxOWM0YTg4JGFhZThmMWM1NTdhYTRmMTZhYTY5YzlkNzg2YzRmYTM4",
         request_timeout=280,
         retry_on_timeout=True,
         max_retries=2,
-        basic_auth=("elastic", "bbOUCV7nDnK8r05DjtRz5zfj")
+        #basic_auth=("elastic", "bbOUCV7nDnK8r05DjtRz5zfj")
     )
     client.options(request_timeout=280).cluster.health( timeout="280s", master_timeout="280s", )
     # store = ElasticsearchStore.from_documents(
@@ -64,14 +64,22 @@ def es_indexing(
         load_files: bool = False,
         hybrid_search: bool = False
 ) -> ElasticsearchStore:
-    retriever = get_es_retriever(
-        index_name=index_name,
+    # retriever1 = get_es_retriever(
+    #     index_name=index_name,
+    #     embedding=embedding,
+    #     embedding_endpoint=embedding_endpoint,
+    #     hybrid_search=hybrid_search,
+    # )
+    retriever2 = get_es_retriever(
+        index_name=index_name+"demo",
         embedding=embedding,
         embedding_endpoint=embedding_endpoint,
         hybrid_search=hybrid_search,
     )
     if load_files:
-        docs = get_academy_docs()
-        retriever.add_documents(docs)
-    return retriever
+        #docs = get_academy_docs()
+        demo_docs = get_demo_docs()
+        #retriever1.add_documents(docs)
+        retriever2.add_documents(demo_docs)
+    return retriever2
 
